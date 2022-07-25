@@ -1,0 +1,16 @@
+{
+  "name": "todo-demo",
+  "description": "Monorepo to show how the TODO MVC could be done using Micro Frontends with Piral.",
+  "author": "smapiot",
+  "license": "MIT",
+  "scripts": {
+    "start": "pilet debug 'pilets/*'"
+  },
+  "devDependencies": {
+    "@types/react": "^17",
+    "@types/react-dom": "^17",
+    "piral-cli": "next",
+    "piral-cli-webpack5": "next",
+    "typescript": "latest"
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "pilets": {
+    "files": [],
+    "scripts": {},
+    "template": "default",
+    "validators": {},
+    "devDependencies": {},
+    "preScaffold": "",
+    "postScaffold": "",
+    "preUpgrade": "",
+    "postUpgrade": "",
+    "packageOverrides": {}
+  }
+}

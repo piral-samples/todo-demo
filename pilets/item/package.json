@@ -1,0 +1,31 @@
+{
+  "name": "@todo-sample/item",
+  "version": "1.0.0",
+  "keywords": [
+    "pilet"
+  ],
+  "dependencies": {},
+  "devDependencies": {
+    "@todo-sample/app": "1.0.0",
+    "react": "^17",
+    "react-dom": "^17",
+    "react-router": "^5",
+    "react-router-dom": "^5"
+  },
+  "scripts": {
+    "start": "pilet debug",
+    "build": "pilet build",
+    "upgrade": "pilet upgrade"
+  },
+  "main": "dist/index.js",
+  "files": [
+    "dist"
+  ],
+  "source": "src/index.tsx",
+  "importmap": {
+    "imports": {},
+    "inherit": [
+      "@todo-sample/app"
+    ]
+  }
+}

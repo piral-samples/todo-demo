@@ -1,0 +1,29 @@
+{
+  "name": "@todo-sample/app",
+  "version": "1.0.0",
+  "keywords": [
+    "piral"
+  ],
+  "dependencies": {
+    "piral-core": "next",
+    "react": "^17",
+    "react-dom": "^17",
+    "react-router": "^5",
+    "react-router-dom": "^5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "piral debug",
+    "build": "piral build",
+    "postinstall": "piral declaration"
+  },
+  "app": "./src/index.html",
+  "types": "./dist/index.d.ts",
+  "importmap": {
+    "imports": {},
+    "inherit": [
+      "piral-base",
+      "piral-core"
+    ]
+  }
+}
