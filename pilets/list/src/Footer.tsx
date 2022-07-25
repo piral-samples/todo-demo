@@ -1,60 +1,26 @@
 import * as React from "react";
+import { PiletApi } from "@todo-sample/app";
 import useStore from "./state";
 
-const Footer = ({ count, completedCount, onClearCompleted }) => {
-  const filter = useStore((m) => m.filter);
-  const filterBy = useStore((m) => m.filterBy);
+interface FooterProps {
+  piral: PiletApi;
+}
 
-  const changeShowing = React.useCallback(
-    (ev: React.MouseEvent<HTMLAnchorElement>) => {
-      ev.preventDefault();
-      filterBy(ev.currentTarget.dataset.value as any);
-    },
-    []
-  );
+const Footer: React.FC<FooterProps> = ({ piral }) => {
+  const { items, filter, clearAll } = useStore();
+  const active = items.filter((m) => !m.completed);
+  const count = active.length;
+
   return (
-    <footer className="footer">
+    <>
       <span className="todo-count">
         <strong>{count}</strong> {count !== 1 ? "items" : "item"} left
       </span>
-      <ul className="filters">
-        <li>
-          <a
-            href="#"
-            data-value="all"
-            onClick={changeShowing}
-            className={filter === "all" ? "selected" : ""}
-          >
-            All
-          </a>
-        </li>
-        <li>
-          <a
-            href="#"
-            data-value="active"
-            onClick={changeShowing}
-            className={filter === "active" ? "selected" : ""}
-          >
-            Active
-          </a>
-        </li>
-        <li>
-          <a
-            href="#"
-            data-value="completed"
-            onClick={changeShowing}
-            className={filter === "completed" ? "selected" : ""}
-          >
-            Completed
-          </a>
-        </li>
-      </ul>
-      {completedCount > 0 && (
-        <button className="clear-completed" onClick={onClearCompleted}>
-          Clear completed
-        </button>
-      )}
-    </footer>
+      <piral.Extension
+        name="filter"
+        params={{ items, filter, onClear: clearAll }}
+      />
+    </>
   );
 };
 

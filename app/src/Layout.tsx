@@ -9,6 +9,9 @@ const Layout: React.FC = () => {
         <ExtensionSlot name="new-entry" />
       </header>
       <ExtensionSlot name="list" />
+      <footer className="footer">
+        <ExtensionSlot name="footer" />
+      </footer>
     </div>
   );
 };

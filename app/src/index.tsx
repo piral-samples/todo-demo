@@ -1,10 +1,7 @@
-import * as React from 'react';
-import { render } from 'react-dom';
-import { createInstance, Piral } from 'piral-core';
-import Layout from './Layout';
-
-// change to your feed URL here (either using feed.piral.cloud or your own service)
-const feedUrl = 'https://feed.piral.cloud/api/v1/pilet/empty';
+import * as React from "react";
+import { render } from "react-dom";
+import { createInstance, Piral } from "piral-core";
+import Layout from "./Layout";
 
 const instance = createInstance({
   state: {
@@ -13,10 +10,8 @@ const instance = createInstance({
     },
   },
   requestPilets() {
-    return fetch(feedUrl)
-      .then(res => res.json())
-      .then(res => res.items);
+    return fetch("./pilets.json").then((res) => res.json());
   },
 });
 
-render(<Piral instance={instance} />, document.querySelector('.todoapp'));
+render(<Piral instance={instance} />, document.querySelector(".todoapp"));

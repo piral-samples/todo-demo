@@ -1,22 +1,24 @@
 import createStore from "zustand";
 
-interface TodoItem {
+export interface TodoItem {
   id: string;
   completed: boolean;
   title: string;
 }
 
-interface Store {
+export type Filters = "all" | "active" | "completed";
+
+export interface Store {
   items: Array<TodoItem>;
   editing: TodoItem | undefined;
-  filter: "all" | "active" | "completed";
+  filter: Filters;
   add(todo: TodoItem): void;
   update(todo: TodoItem): void;
   remove(todo: TodoItem): void;
   edit(todo: TodoItem): void;
   toggleAll(): void;
   clearAll(): void;
-  filterBy(type: "all" | "active" | "completed"): void;
+  filterBy(type: Filters): void;
 }
 
 export default createStore<Store>((set) => ({

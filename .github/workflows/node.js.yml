@@ -24,12 +24,15 @@ jobs:
           pnpm install
       - name: Build Website
         run: |
-          npx pilet build 'pilets/*' --type standalone
-          echo "todo-mvc.samples.piral.cloud" > dist/standalone1/CNAME
-          cp dist/standalone/index.html dist/standalone/404.html
+          npx pilet build 'pilets/*' --type manifest
+          npx piral build 'app/' --type release
+          echo "todo-mvc.samples.piral.cloud" > dist/release/CNAME
+          mv dist/todo-* dist/release/
+          mv dist/pilets.json dist/release/pilets.json
+          cp dist/release/index.html dist/release/404.html
       - name: Deploy Website
         run: |
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
-          gh-pages -d "dist/standalone" -u "github-actions-bot <support+actions@github.com>"
+          gh-pages -d "dist/release" -u "github-actions-bot <support+actions@github.com>"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
