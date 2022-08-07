@@ -6,10 +6,6 @@
 
 :zap: Decompose and orchestrate a simple application using Piral.
 
-Feel free to play around with the code using StackBlitz.
-
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/piral-samples/todo-demo)
-
 You can also visit this demo at [todo-mvc.samples.piral.cloud/](https://todo-mvc.samples.piral.cloud/).
 
 ## Getting Started
